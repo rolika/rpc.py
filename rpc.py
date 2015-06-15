@@ -5,7 +5,7 @@ import math
 ### CLASSES ###
 
 class Stack:
-    """ Object to realize&handle stack
+    """ Object to realize & handle stack
         Access to stack only through its methods """
 
     def __init__(self):
@@ -171,7 +171,9 @@ Commands are not, but variable names are case sensitive.
             print("Error: calculation impossible")
             return True
         return False
-        
+
+### FUNCTIONS ###
+
 def main():
     """ Main programm """
     app = RPC() #instantiate calculator
@@ -180,6 +182,8 @@ def main():
         if expression.lower() == "done":
             break
         app.evaluate(expression)
+
+### EXECUTE IF STAND-ALONE ###
 
 if __name__ == "__main__":
     main()
