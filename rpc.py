@@ -152,9 +152,7 @@ Commands are not, but variable names are case sensitive.
         if operator in self.functions: #function with one operand
             operand = self.stack.pop_from()
             if operand is not None:
-                formula = "math." + operator + "(" + operand + ")" #like: math.sqrt(2)
-                if operator in self.trigonometric:
-                    formula = "math." + operator + "(math.radians(" + operand + "))" #like: math.sin(math.radians(60))
+                formula = "math." + operator + "(" + operand + ")" if operator not in self.trigonometric else "math." + operator + "(math.radians(" + operand + "))" #because radians are inhuman
             else:
                 return True #error already displayed
         else: #otherwise operator with two operands
