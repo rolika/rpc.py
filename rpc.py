@@ -67,7 +67,8 @@ class Variable:
         
 class RPC:
     """Application for performing calculations expressed in postfix notation, aka
-reversed polish calculation.
+    
+REVERSED POLISH CALCULATION
 
 Usage:
     self.evaluate(expression),
