@@ -4,17 +4,18 @@ import math
 
 ### CLASSES ###
 
-class Stack:
+class Stack(list):
     """ Object to realize & handle stack
         Access to stack only through its methods """
 
     def __init__(self):
         """ Init stack as list """
+        super().__init__()
         self.clear_stack()
 
     def clear_stack(self):
         """ Clears stack """
-        self.stack = []
+        self = []
         print("\nStack cleared")
 
     def push_to(self, item):
@@ -24,46 +25,47 @@ class Stack:
             num = float(item) #only numbers are allowed
         except:
             return True
-        self.stack.append(item) #stores numbers as strings (because of eval)
+        self.append(item) #stores numbers as strings (because of eval)
         return False
 
     def pop_from(self):
         """ Removes&returns last item in stack
             returns None if stack is empty"""
         try:
-            return self.stack.pop()
+            return self.pop()
         except:
             print("Error: empty stack")
             return None
 
-class Variable:
+class Variable(dict):
     """ Defines storage place & handling methods for variables
         Access to variable only through its methods """
 
     def __init__(self):
         """ Init storage as dictionary """
+        super().__init__()
         self.clear_variables()
 
     def clear_variables(self):
         """ Destroy all variables """
-        self.variable = {}
+        self = {}
         print("\nVariables cleared")
 
     def check_variable(self, name):
         """ Checks if variable name already exists"""
-        if self.variable.get(name, None) is None:
+        if self.get(name, None) is None:
             return False # existing
         return True #not existing
 
     def add_variable(self, name, value):
         """ Creates new variable equaling value """
-        self.variable[name] = value
+        self[name] = value
         print(value, "popped from stack into", name)
 
     def get_variable(self, name):
         """ Returns variable """
-        print(self.variable[name], "from", name, "pushed to stack")
-        return self.variable[name]
+        print(self[name], "from", name, "pushed to stack")
+        return self[name]
         
 class RPC:
     """Application for performing calculations expressed in postfix notation, aka
