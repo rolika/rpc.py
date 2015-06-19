@@ -181,7 +181,7 @@ def main():
     app = RPC() #instantiate calculator
     while True:
         expression = input("\nPlease enter a postfix-notated expression: ")
-        if expression.lower() == "done":
+        if expression.lower() in "done off enough ok":
             break
         app.evaluate(expression)
 
